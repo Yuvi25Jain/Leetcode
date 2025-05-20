@@ -1,0 +1,30 @@
+Statement : Reverse a Linked List
+
+eg: 
+Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1]
+
+
+Approach:
+
+1. Brute force : create an extra array store the elements of linked list in it , now reverse the array and update this new change in linkedlist. but this require extra memory.
+
+2. Optimal : in place traversal . here initially prev ptr is null and curr will point to head . just change the connection and will get the final output. 
+
+
+code:
+
+ListNode* reverseList(ListNode* head) {
+        ListNode *prev = nullptr ;
+        ListNode *curr = head ;
+
+        while(curr != nullptr){
+            ListNode *next = curr->next ;
+            curr->next = prev ;
+            prev = curr ;
+            curr = next ;
+        }
+        return prev ;
+
+        
+    }
